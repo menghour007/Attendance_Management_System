@@ -1,6 +1,17 @@
 <?php
-// teacher/Teacher.php
+require_once '../Auth.php';
+require_once '../db.php';
+require_once 'Teacher.php';
 
+if (!Auth::isLoggedIn()) {
+    header("Location: /Auth/login.php");
+    exit;
+}
+
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: /dashboard/dashboard.php");
+    exit;
+}
 class Teacher {
     private $db;
     private $table = "users";
