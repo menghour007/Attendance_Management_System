@@ -7,13 +7,13 @@ if (session_status() == PHP_SESSION_NONE) {
 $current_role = $_SESSION['role'] ?? '';
 
 // Define the root folder URL path configuration dynamically or statically
-$root = "/Attendance_Management_System/";
+$root = "/";
 ?>
 <div class="sidebar">
     <div class="sidebar-brand">
         <h3>School Portal</h3>
     </div>
-    
+
     <div class="user-info">
         <p class="user-name"><?php echo htmlspecialchars($_SESSION['full_name'] ?? 'Guest'); ?></p>
         <span class="role-badge"><?php echo htmlspecialchars($current_role); ?></span>
@@ -21,7 +21,7 @@ $root = "/Attendance_Management_System/";
 
     <ul class="sidebar-menu">
         <li><a href="<?php echo $root; ?>dashboard/dashboard.php">🏠 Dashboard</a></li>
-        
+
         <?php if ($current_role === 'admin'): ?>
             <li class="menu-header">Administration</li>
             <li><a href="<?php echo $root; ?>teacher/index.php">👥 Manage Teachers</a></li>
@@ -37,7 +37,7 @@ $root = "/Attendance_Management_System/";
             <li><a href="<?php echo $root; ?>dashboard/attendance.php">📝 Take Attendance</a></li>
             <li><a href="<?php echo $root; ?>dashboard/reports.php">📊 Attendance Reports</a></li>
         <?php endif; ?>
-        
+
         <li class="menu-header">Account</li>
         <li><a href="<?php echo $root; ?>Auth/logout.php" class="logout-link">🚪 Logout</a></li>
     </ul>
@@ -50,7 +50,7 @@ $root = "/Attendance_Management_System/";
         --light-text: #ecf0f1;
         --accent-color: #3498db;
     }
-    
+
     .sidebar {
         width: var(--sidebar-width);
         background-color: var(--dark-bg);
@@ -60,17 +60,22 @@ $root = "/Attendance_Management_System/";
         top: 0;
         left: 0;
         overflow-y: auto;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     .sidebar-brand {
         padding: 20px;
         text-align: center;
         background: #1a252f;
         border-bottom: 1px solid #34495e;
     }
-    .sidebar-brand h3 { margin: 0; font-weight: 600; color: #fff; }
+
+    .sidebar-brand h3 {
+        margin: 0;
+        font-weight: 600;
+        color: #fff;
+    }
 
     .user-info {
         padding: 20px;
@@ -78,7 +83,13 @@ $root = "/Attendance_Management_System/";
         background: #243342;
         border-bottom: 1px solid #34495e;
     }
-    .user-name { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; }
+
+    .user-name {
+        margin: 0 0 5px 0;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
     .role-badge {
         display: inline-block;
         padding: 3px 10px;
@@ -90,7 +101,12 @@ $root = "/Attendance_Management_System/";
         font-weight: bold;
     }
 
-    .sidebar-menu { list-style: none; padding: 0; margin: 0; }
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
     .menu-header {
         padding: 15px 20px 5px 20px;
         font-size: 11px;
@@ -99,6 +115,7 @@ $root = "/Attendance_Management_System/";
         color: #7f8c8d;
         font-weight: bold;
     }
+
     .sidebar-menu li a {
         display: block;
         padding: 12px 20px;
@@ -107,16 +124,19 @@ $root = "/Attendance_Management_System/";
         font-size: 14px;
         transition: all 0.2s;
     }
+
     .sidebar-menu li a:hover {
         background: #34495e;
         color: #fff;
         padding-left: 25px;
     }
+
     .sidebar-menu li a.active {
         background: var(--accent-color);
         color: white;
         font-weight: bold;
     }
+
     .sidebar-menu li a.logout-link:hover {
         background: #c0392b;
     }
