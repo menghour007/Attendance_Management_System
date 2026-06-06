@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $current_role = $_SESSION['role'] ?? '';
 
 // Define the root folder URL path configuration dynamically or statically
-$root = "/";
+$root = "/Attendance_Management_System/";
 ?>
 <div class="sidebar">
     <div class="sidebar-brand">
@@ -26,9 +26,9 @@ $root = "/";
             <li class="menu-header">Administration</li>
             <li><a href="<?php echo $root; ?>teacher/index.php">👥 Manage Teachers</a></li>
             <li><a href="<?php echo $root; ?>dashboard/manage_users.php">👥 Manage Users</a></li>
-            <li><a href="<?php echo $root; ?>dashboard/academic_years.php">📅 Academic Years</a></li>
-            <li><a href="<?php echo $root; ?>dashboard/courses.php">📚 Courses</a></li>
-            <li><a href="<?php echo $root; ?>dashboard/classes.php">🏫 Classes</a></li>
+            <li><a href="<?php echo $root; ?>academic_years/academic_years.php">📅 Academic Years</a></li>
+            <li><a href="<?php echo $root; ?>courses/courses.php">📚 Courses</a></li>
+            <li><a href="<?php echo $root; ?>classes/classes.php">🏫 Classes</a></li>
         <?php endif; ?>
 
         <?php if ($current_role === 'teacher'): ?>
