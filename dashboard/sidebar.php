@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $current_role = $_SESSION['role'] ?? '';
 
 // Define the root folder URL path configuration dynamically or statically
-$root = "/Attendance_Management_System/";
+$root = "/";
 ?>
 <div class="sidebar">
     <div class="sidebar-brand">
